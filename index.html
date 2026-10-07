@@ -8,7 +8,9 @@
   body { font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; max-width: 760px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #1a1a1a; }
   h1 { font-size: 1.6rem; }
   h2 { font-size: 1.2rem; margin-top: 2rem; }
+  h3 { font-size: 1.05rem; margin-top: 1.4rem; }
   .updated { color: #555; font-size: 0.9rem; }
+  .summary { background: #f4f6fa; border-left: 4px solid #1a56db; padding: 0.6rem 1rem; }
   hr { margin: 2rem 0; border: none; border-top: 1px solid #ddd; }
   a { color: #1a56db; }
 </style>
@@ -16,43 +18,143 @@
 <body>
 
 <h1>AndroTalk Ekran Okuyucu — Gizlilik Politikası</h1>
-<p class="updated">Son güncelleme: 12 Temmuz 2026</p>
+<p class="updated">Son güncelleme: 7 Ekim 2026 (önceki sürüm: 12 Temmuz 2026)</p>
 
-<p>Bu gizlilik politikası, AndroTalk Ekran Okuyucu ("AndroTalk", "uygulama") uygulamasının kullanıcı verilerini nasıl işlediğini açıklar. AndroTalk, görme engelli ve az gören kullanıcılar için tasarlanmış bir Android erişilebilirlik (ekran okuyucu) uygulamasıdır.</p>
+<p>Bu gizlilik politikası, AndroTalk Ekran Okuyucu ("AndroTalk", "uygulama") uygulamasının verileri nasıl işlediğini açıklar. AndroTalk, görme engelli ve az gören kullanıcılar için tasarlanmış bir Android erişilebilirlik (ekran okuyucu) uygulamasıdır.</p>
 
-<h2>Erişilebilirlik Servisi ve İşlenen Veriler</h2>
-<p>AndroTalk, temel işlevini yerine getirebilmek için Android Erişilebilirlik Servisi API'sini kullanır. Bu, uygulamanın ekrandaki içeriği (metinler, düğme etiketleri, bildirimler, uygulama arayüzleri) okuyup sesli olarak kullanıcıya aktarabilmesi için gereklidir.</p>
-<p>Bu şekilde erişilen ekran içeriği <strong>yalnızca cihazınızda, yerel olarak işlenir</strong> ve sese dönüştürülür. Bu içerik geliştiriciye veya üçüncü taraflara gönderilmez, sunuculara yüklenmez veya saklanmaz.</p>
-
-<h2>İzinler</h2>
-<p>Uygulama, erişilebilirlik özelliklerini desteklemek amacıyla aşağıdaki izinleri kullanabilir. Tüm bu izinler yalnızca cihaz üzerinde, ilgili özelliği çalıştırmak için kullanılır:</p>
+<section class="summary" aria-label="Kısaca">
+<h2>Kısaca</h2>
 <ul>
-  <li><strong>Telefon araması / Aramaları yanıtlama / Telefon durumu:</strong> Jestlerle sesli arama başlatma, gelen aramayı el hareketiyle yanıtlama, arama sırasında ses çıkışını otomatik ayarlama gibi erişilebilirlik özellikleri için.</li>
-  <li><strong>Diğer uygulamaların üzerinde görüntüleme:</strong> Kenar jesti menüsü ve ekran perdesi (gizlilik) gibi erişilebilirlik arayüz katmanları için.</li>
-  <li><strong>İnternet:</strong> Metin okuma (TTS) motoru keşfi ve isteğe bağlı özellikler için; kullanıcı verisi toplamak veya iletmek amacıyla kullanılmaz.</li>
-  <li><strong>Bildirim erişimi (isteğe bağlı):</strong> Bildirimlerin sesli okunabilmesi için.</li>
+  <li>AndroTalk'ın sunucusu yoktur. Geliştirici ekran içeriğinizi, mesajlarınızı ya da kişisel verilerinizi toplamaz, görmez ve saklamaz.</li>
+  <li>Ekran içeriği cihazınızda okunur ve sese çevrilir.</li>
+  <li>Veri cihazınızdan yalnız sizin seçtiğiniz ya da başlattığınız işlemlerde çıkar:
+    <ul>
+      <li>bulut yapay zekâ (Google Gemini, kendi API anahtarınızla),</li>
+      <li>model ve dil paketi indirme,</li>
+      <li>cihazınızın konuşma tanıma hizmeti,</li>
+      <li>sizin gönderdiğiniz günlük ve yedek dosyaları.</li>
+    </ul>
+    Ayrıca uygulamadaki Google ML Kit kütüphanesi Google'a içerik içermeyen tanılama verileri gönderir (aşağıda).</li>
+  <li>Reklam yoktur, hesap gerekmez.</li>
+</ul>
+</section>
+
+<h2>1. Erişilebilirlik hizmeti ve ekran içeriği</h2>
+<p>AndroTalk, temel işlevini yerine getirmek için Android Erişilebilirlik Servisi API'sini kullanır. Ekrandaki içeriği (metinler, düğme adları, bildirimler, uygulama arayüzleri) okuyup size sesli olarak aktarmak ve hareketlerle telefonu kullanmanızı sağlamak için bu gereklidir.</p>
+<p>Bu içerik cihazınızda işlenir ve seçtiğiniz metin okuma (TTS) motoruyla sese çevrilir. Geliştiriciye gönderilmez.</p>
+<p>TTS motoru ayrı bir uygulamadır (ör. Google Konuşma Hizmetleri, Samsung TTS, MultiTTS) ve okunacak metni o alır. Bazı motorlar seslendirme için kendi çevrimiçi hizmetlerini kullanabilir; bu durumda o motorun gizlilik politikası geçerlidir.</p>
+
+<h2>2. Yapay zekâ özellikleri (isteğe bağlı)</h2>
+<p>AndroTalk'ın yapay zekâ özellikleri şunlardır:</p>
+<ul>
+  <li>ekranı ya da bir görseli betimleme,</li>
+  <li>ekran hakkında soru sorma ("Ekrana sor"),</li>
+  <li>adsız düğmeler için etiket önerisi,</li>
+  <li>başka bir uygulamadan AndroTalk'a paylaştığınız görseli çözümleme,</li>
+  <li>doğrulama kodu (captcha) okuma.</li>
+</ul>
+<p>Bu özellikler yalnız siz bir komut, hareket ya da menüyle başlattığınızda çalışır. Hangi yapay zekâ sağlayıcısının kullanılacağını Ayarlar'da siz seçersiniz; bir sağlayıcı kurulmadan hiçbiri çalışmaz.</p>
+
+<h3>Cihaz üstü sağlayıcılar: veri cihazdan çıkmaz</h3>
+<ul>
+  <li><strong>Gemma</strong>: uygulamanın indirdiği, telefonunuzda çalışan model.</li>
+  <li><strong>Gemini Nano</strong>: Android'in AICore hizmeti üzerinden, cihazınız destekliyorsa.</li>
+</ul>
+<p>Bu sağlayıcılarla ekran görüntüsü, metin ve sorularınız cihazınızda işlenir; hiçbir yere gönderilmez.</p>
+
+<h3>Bulut sağlayıcı: Google Gemini API</h3>
+<p><strong>Ne zaman kullanılır:</strong> yalnız siz kendi Google API anahtarınızı girip sağlayıcı olarak Gemini'yi seçerseniz. Bu durumda yukarıdaki özelliklerden birini kullandığınızda şunlar doğrudan cihazınızdan Google'a gönderilir:</p>
+<ul>
+  <li>o anki ekran görüntüsü, ya da seçtiğiniz veya paylaştığınız görsel ya da ekran parçası,</li>
+  <li>gerekiyorsa ekrandaki metin,</li>
+  <li>sorunuz.</li>
+</ul>
+<p>Bu veriler geliştiricinin herhangi bir sunucusundan geçmez; geliştirici bu içeriği görmez ve saklamaz.</p>
+<p><strong>Google'ın verileri nasıl kullandığı,</strong> sizin Google ile aranızdaki Gemini API şartlarına bağlıdır. Google'ın şartlarına göre:</p>
+<ul>
+  <li><strong>Ücretsiz kullanımda</strong> gönderilen içerik Google'ın ürünlerini geliştirmek için kullanılabilir ve insan incelemeciler tarafından okunabilir. Google, ücretsiz hizmete hassas, gizli ya da kişisel bilgi gönderilmemesini ister.</li>
+  <li><strong>Ücretli kullanımda</strong> içerik Google'ın ürünlerini geliştirmek için kullanılmaz; kötüye kullanımı tespit etmek için sınırlı bir süre saklanır.</li>
+  <li><strong>Avrupa Ekonomik Alanı, İsviçre ve Birleşik Krallık'ta</strong> ücretli kullanım koşulları bütün kullanıma uygulanır.</li>
+</ul>
+<p>Ayrıntı: <a href="https://ai.google.dev/gemini-api/terms">Gemini API ek hizmet şartları</a> ve <a href="https://policies.google.com/privacy">Google Gizlilik Politikası</a>.</p>
+<p><strong>Önerimiz:</strong> banka, sağlık, şifre ya da özel yazışma içeren ekranlarda bulut yapay zekâyı kullanmayın; bu ekranlar için cihaz üstü bir sağlayıcı seçin.</p>
+<p><strong>API anahtarınız:</strong> yalnız cihazınızda, uygulamanın özel alanında (mümkün olduğunda Android'in şifreli depolamasıyla) saklanır. Yedeklere girmez; yalnız Google'a istek yapılırken kullanılır. Ayarlar'dan silebilirsiniz.</p>
+
+<h2>3. Model ve dil paketi indirme</h2>
+<ul>
+  <li><strong>Çeviri ve yazı tanıma:</strong> otomatik çeviri, dil tanıma ve ekrandaki yazıyı tanıma, Google ML Kit ile cihazınızda çalışır. Çeviri dil paketleri ilk kullanımda Google'ın sunucularından indirilir. İndirme sırasında çevrilecek metin gönderilmez.</li>
+  <li><strong>Gemma modelleri</strong> Hugging Face'ten (huggingface.co) indirilir. Bazı modeller için kendi Hugging Face jetonunuzu girmeniz gerekir; jeton yalnız indirme sırasında Hugging Face'e gönderilir ve API anahtarları gibi cihazda saklanır.</li>
 </ul>
 
-<h2>Günlük Kaydı (Log) Özelliği</h2>
-<p>Uygulama, kullanıcı isterse etkinleştirebileceği isteğe bağlı bir hata ayıklama günlüğü (log) özelliği sunar. Bu özellik etkinleştirildiğinde, teknik tanılama bilgileri yalnızca <strong>cihazınızın yerel deposuna</strong> yazılır. Bu günlükler otomatik olarak hiçbir yere gönderilmez.</p>
-<p>Kullanıcı isterse, "Günlükleri gönder" seçeneğiyle bu günlükleri e-posta yoluyla geliştiriciye <strong>kendi isteğiyle</strong> gönderebilir. Bu işlem tamamen kullanıcı kontrolündedir ve yalnızca kullanıcı açıkça bu eylemi başlattığında gerçekleşir.</p>
+<h2>4. Google ML Kit tanılama verileri</h2>
+<p>Uygulamadaki Google ML Kit kütüphaneleri (yazı tanıma, çeviri, dil tanıma, cihaz üstü yapay zekâ) Google'a şunları gönderir:</p>
+<ul>
+  <li>cihaz bilgisi (üretici, model, Android sürümü),</li>
+  <li>uygulama bilgisi (paket adı, sürüm),</li>
+  <li>cihaza ya da kuruluma özgü bir kimlik,</li>
+  <li>performans ölçümleri, hata kodları,</li>
+  <li>kullanılan dil ayarları.</li>
+</ul>
+<p>Bu veriler tanılama ve kullanım istatistiği içindir.</p>
+<p>Google'ın beyanına göre bu gönderim çevrilen ya da tanınan metni veya görselin kendisini içermez; HTTPS ile şifrelenerek iletilir ve Google tarafından üçüncü taraflara aktarılmaz. Ayrıntı: <a href="https://developers.google.com/ml-kit/android-data-disclosure">ML Kit veri açıklaması</a>.</p>
 
-<h2>Reklam ve Analitik</h2>
-<p>AndroTalk herhangi bir reklam ağı, üçüncü taraf analitik veya izleme (tracking) SDK'sı içermez.</p>
+<h2>5. Ses tanıma (mikrofon)</h2>
+<p>Mikrofon yalnız sizin başlattığınız sesli işlemlerde kullanılır: "Ekrana sor", sesle öge bulma, sesle yazdırma.</p>
+<p>Konuşmanız Android'in konuşma tanıma hizmetiyle metne çevrilir. Cihazınız destekliyorsa cihaz üstü tanıma kullanılır. Desteklemiyorsa cihazınızdaki konuşma tanıma hizmeti (çoğu cihazda Google) sesi kendi sunucusunda işleyebilir; bu durumda o hizmetin gizlilik politikası geçerlidir.</p>
 
-<h2>Hesap Gereksinimi</h2>
-<p>Uygulamayı kullanmak için herhangi bir hesap oluşturmanız veya oturum açmanız gerekmez.</p>
+<h2>6. Bildirimler, pano ve geçmişler</h2>
+<p>Bildirim erişimi isteğe bağlıdır ve bildirimleri sesli okumak içindir. Bildirim geçmişi ve pano geçmişi yalnız cihazınızda saklanır. Uygulama içinden silebilir ya da uygulamanın verilerini temizleyerek tamamen kaldırabilirsiniz.</p>
 
-<h2>Üçüncü Taraflarla Veri Paylaşımı</h2>
-<p>AndroTalk, kullanıcı verilerini üçüncü taraflarla paylaşmaz veya satmaz.</p>
+<h2>7. Yedekleme</h2>
+<p>Yedeği siz başlatırsınız: ayarlarınız, isterseniz pano geçmişi de, seçtiğiniz konuma bir dosya olarak yazılır. Yapay zekâ anahtarları ve jetonlar yedeğe girmez.</p>
+<p>Yedek dosyasının nerede duracağına ve kiminle paylaşılacağına siz karar verirsiniz. Android'in otomatik bulut yedeklemesi bu uygulama için kapalıdır.</p>
 
-<h2>Çocukların Gizliliği</h2>
-<p>AndroTalk, çocuklara yönelik olarak tasarlanmamıştır ve bilerek 13 yaş altı çocuklardan veri toplamaz.</p>
+<h2>8. Günlük kaydı (log)</h2>
+<p>Uygulama, isterseniz açabileceğiniz bir hata ayıklama günlüğü sunar. Açıkken teknik tanılama bilgileri yalnız cihazınızın yerel deposuna yazılır; otomatik olarak hiçbir yere gönderilmez.</p>
+<p>"Günlükleri gönder" seçeneğiyle günlükleri, paylaşım menüsünden seçtiğiniz bir uygulamayla (ör. e-posta ya da mesajlaşma) kendiniz gönderebilirsiniz.</p>
+<p><strong>Günlüklerin içeriği:</strong> sorunu anlamaya yardım etmek için günlükler ekrandaki metinlerden parçalar içerebilir.</p>
+<ul>
+  <li>Şifre alanlarına, yazı alanlarına ve kilit ekranına yazılanlar her zaman gizlenir.</li>
+  <li>"Logda metin içeriğini gizle" ayarı açıkken ekrandaki yazılar da günlüğe yazılmaz, yerlerine yalnız uzunlukları yazılır. Banka, sağlık ya da mesajlaşma uygulamalarıyla ilgili bir sorun bildirirken bu ayarı açmanızı öneririz.</li>
+  <li>Geliştirici, gönderdiğiniz günlükleri yalnız hatayı gidermek için kullanır ve kimseyle paylaşmaz.</li>
+</ul>
 
-<h2>Bu Politikadaki Değişiklikler</h2>
-<p>Bu gizlilik politikası zaman zaman güncellenebilir. Önemli değişiklikler bu sayfada yayınlanacaktır.</p>
+<h2>9. İzinler</h2>
+<p>Uygulamanın kullandığı başlıca izinler ve amaçları:</p>
+<ul>
+  <li><strong>Erişilebilirlik hizmeti:</strong> ekranı okumak ve telefonu hareketlerle kullanmanızı sağlamak.</li>
+  <li><strong>Bildirim erişimi (isteğe bağlı):</strong> bildirimleri sesli okumak.</li>
+  <li><strong>Telefon durumu ve aramaları yanıtlama:</strong> gelen aramayı hareketle yanıtlamak, arama sırasında konuşmayı ve sesi yönetmek.</li>
+  <li><strong>Mikrofon:</strong> yalnız sizin başlattığınız sesli işlemler.</li>
+  <li><strong>İnternet ve ağ durumu:</strong> seçerseniz bulut yapay zekâ ile model ve dil paketi indirme.</li>
+  <li><strong>Bildirim gösterme ve ön plan hizmeti:</strong> ekran okuyucunun arka planda kapanmaması ve durum bildirimi.</li>
+  <li><strong>Açılışta başlama ve pil iyileştirmesi muafiyeti (isteğe bağlı):</strong> telefon açılınca ekran okuyucunun başlaması ve sistem tarafından durdurulmaması.</li>
+  <li><strong>Titreşim ve ses ayarları:</strong> dokunsal geri bildirim ve ses kanalı yönetimi.</li>
+</ul>
 
-<h2>İletişim</h2>
+<h2>10. Reklam, izleme ve hesap</h2>
+<p>AndroTalk reklam ağı ya da reklam amaçlı izleme içermez. Bölüm 4'teki ML Kit tanılama verileri dışında analitik toplanmaz. Uygulamayı kullanmak için hesap oluşturmanız ya da oturum açmanız gerekmez.</p>
+
+<h2>11. Üçüncü taraflar</h2>
+<p>AndroTalk kullanıcı verilerini satmaz ve geliştirici kimseyle paylaşmaz. Verilerin cihazdan doğrudan ulaşabileceği hizmetler yalnız şunlardır:</p>
+<ul>
+  <li><strong>Google:</strong> Gemini API (seçerseniz), ML Kit model indirme ve tanılama verileri, AICore, cihazınızın konuşma tanıma hizmeti.</li>
+  <li><strong>Hugging Face:</strong> model indirme.</li>
+  <li><strong>Metin okuma motorunuz:</strong> okunacak metin.</li>
+</ul>
+<p>Bu hizmetlerin her biri kendi gizlilik politikasına tabidir.</p>
+
+<h2>12. Verilerinizi silme</h2>
+<p>Uygulamanın cihazınızdaki bütün verileri (ayarlar, geçmişler, günlükler, indirilen modeller, anahtarlar) uygulamayı kaldırınca ya da Android ayarlarından uygulamanın verilerini temizleyince silinir. Kendi seçtiğiniz bir konuma dışa aktardığınız yedek dosyaları bunun dışındadır; onları siz silersiniz.</p>
+<p>Google'a gönderilen içerik için Google'ın politikası geçerlidir. Bize gönderdiğiniz günlüklerin silinmesini istemek için aşağıdaki adrese yazabilirsiniz.</p>
+
+<h2>13. Çocukların gizliliği</h2>
+<p>AndroTalk çocuklara yönelik olarak tasarlanmamıştır ve bilerek 13 yaş altı çocuklardan veri toplamaz.</p>
+
+<h2>14. Bu politikadaki değişiklikler</h2>
+<p>Bu gizlilik politikası zaman zaman güncellenebilir. Önemli değişiklikler bu sayfada yayınlanır; sayfanın başındaki tarih son güncellemeyi gösterir.</p>
+
+<h2>15. İletişim</h2>
 <p>Gizlilik politikasıyla ilgili sorularınız için: <a href="mailto:yesiltas1981@gmail.com">yesiltas1981@gmail.com</a></p>
 
 <hr>
