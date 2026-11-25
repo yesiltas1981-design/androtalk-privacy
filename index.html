@@ -29,7 +29,8 @@
   <li>Ekran içeriği cihazınızda okunur ve sese çevrilir.</li>
   <li>Veri cihazınızdan yalnız sizin seçtiğiniz ya da başlattığınız işlemlerde çıkar:
     <ul>
-      <li>bulut yapay zekâ (Google Gemini, kendi API anahtarınızla),</li>
+      <li>bulut yapay zekâ (Google Gemini ya da Anthropic Claude, kendi API anahtarınızla),</li>
+      <li>sesli asistanın telefonunuzdaki Google uygulamasıyla yaptığı arama,</li>
       <li>model ve dil paketi indirme,</li>
       <li>cihazınızın konuşma tanıma hizmeti,</li>
       <li>sizin gönderdiğiniz günlük ve yedek dosyaları.</li>
@@ -47,6 +48,7 @@
 <h3>Otomasyonlar</h3>
 <p>Sık yaptığınız bir işin adımlarını (ör. bir ögeye dokunma, uzun basma, Geri, kaydırma, uygulama açma) siz kaydedersiniz; otomasyon yalnız siz bir hareket, menü ya da kısayolla başlattığınızda çalışır.</p>
 <p>Kayıtlar (adımlar, basılan ögelerin adları ve hangi uygulamada oldukları) yalnız cihazınızda saklanır; geliştiriciye ya da başka bir yere gönderilmez. Yedek alırsanız yedek dosyasına girer.</p>
+<p>"Yapay zekâyla bul ve dokun" ile eklenen bir adımda dokunulan yer ve hangi ekranda olduğu, yakındaki adlı bir ögenin adı ve o yerin çevresinden küçük, gri bir resim parçası da saklanır. Oynatırken aynı şeyin hâlâ orada olup olmadığına bu parçayla cihazınızda bakılır. Yer artık tutmazsa ve yeniden bulmayı kabul ederseniz ekran görüntüsü seçtiğiniz bulut sağlayıcısına gönderilir (Bölüm 2).</p>
 <p>Android 14 ve sonrasında, ekran görüntüsü alınmasını engelleyen ekranlarda (ör. banka ve şifre ekranları) ve kendini hassas olarak işaretleyen ögelerde kayıt ve oynatma yapılmaz. Otomasyon ayrıca izin istemez; erişilebilirlik hizmetinin olağan eylemlerini kullanır.</p>
 
 <h2>2. Yapay zekâ özellikleri (isteğe bağlı)</h2>
@@ -56,7 +58,9 @@
   <li>ekran hakkında soru sorma ("Ekrana sor"),</li>
   <li>adsız düğmeler için etiket önerisi,</li>
   <li>başka bir uygulamadan AndroTalk'a paylaştığınız görseli çözümleme,</li>
-  <li>doğrulama kodu (captcha) okuma.</li>
+  <li>doğrulama kodu (captcha) okuma,</li>
+  <li>ekranda dokunulacak yeri bulma ("Yapay zekâyla bul ve dokun"),</li>
+  <li>sesli asistanın kendi kurallarıyla anlayamadığı cümleler ve sorular (aşağıda).</li>
 </ul>
 <p>Bu özellikler yalnız siz bir komut, hareket ya da menüyle başlattığınızda çalışır. Hangi yapay zekâ sağlayıcısının kullanılacağını Ayarlar'da siz seçersiniz; bir sağlayıcı kurulmadan hiçbiri çalışmaz.</p>
 
@@ -67,8 +71,8 @@
 </ul>
 <p>Bu sağlayıcılarla ekran görüntüsü, metin ve sorularınız cihazınızda işlenir; hiçbir yere gönderilmez.</p>
 
-<h3>Bulut sağlayıcı: Google Gemini API</h3>
-<p><strong>Ne zaman kullanılır:</strong> yalnız siz kendi Google API anahtarınızı girip sağlayıcı olarak Gemini'yi seçerseniz. Bu durumda yukarıdaki özelliklerden birini kullandığınızda şunlar doğrudan cihazınızdan Google'a gönderilir:</p>
+<h3>Bulut sağlayıcılar: Google Gemini API ve Anthropic Claude API</h3>
+<p><strong>Ne zaman kullanılır:</strong> yalnız siz kendi API anahtarınızı girip sağlayıcı olarak Gemini'yi ya da Claude'u seçerseniz. Bu durumda yukarıdaki özelliklerden birini kullandığınızda şunlar doğrudan cihazınızdan seçtiğiniz sağlayıcıya (Google'a ya da Anthropic'e) gönderilir:</p>
 <ul>
   <li>o anki ekran görüntüsü, ya da seçtiğiniz veya paylaştığınız görsel ya da ekran parçası,</li>
   <li>gerekiyorsa ekrandaki metin,</li>
@@ -82,8 +86,13 @@
   <li><strong>Avrupa Ekonomik Alanı, İsviçre ve Birleşik Krallık'ta</strong> ücretli kullanım koşulları bütün kullanıma uygulanır.</li>
 </ul>
 <p>Ayrıntı: <a href="https://ai.google.dev/gemini-api/terms">Gemini API ek hizmet şartları</a> ve <a href="https://policies.google.com/privacy">Google Gizlilik Politikası</a>.</p>
+<p><strong>Anthropic'in verileri nasıl kullandığı,</strong> sizin Anthropic ile aranızdaki API şartlarına bağlıdır. Anthropic'in şartlarına göre API'ye gönderilen içerik, ayrı bir anlaşma yapmadıysanız modellerini eğitmek için kullanılmaz; güvenlik amacıyla sınırlı bir süre saklanır, kötüye kullanım şüphesinde ya da yasa gerektirdiğinde daha uzun saklanabilir. Ayrıntı: <a href="https://www.anthropic.com/legal/commercial-terms">Anthropic ticari hizmet şartları</a> ve <a href="https://www.anthropic.com/legal/privacy">Anthropic Gizlilik Politikası</a>.</p>
 <p><strong>Önerimiz:</strong> banka, sağlık, şifre ya da özel yazışma içeren ekranlarda bulut yapay zekâyı kullanmayın; bu ekranlar için cihaz üstü bir sağlayıcı seçin.</p>
-<p><strong>API anahtarınız:</strong> yalnız cihazınızda, uygulamanın özel alanında (mümkün olduğunda Android'in şifreli depolamasıyla) saklanır. Yedeklere girmez; yalnız Google'a istek yapılırken kullanılır. Ayarlar'dan silebilirsiniz.</p>
+<p><strong>API anahtarlarınız:</strong> yalnız cihazınızda, uygulamanın özel alanında (mümkün olduğunda Android'in şifreli depolamasıyla) saklanır. Yedeklere girmez; yalnız ilgili sağlayıcıya (Google'a ya da Anthropic'e) istek yapılırken kullanılır. Ayarlar'dan silebilirsiniz.</p>
+
+<h3>Sesli asistan</h3>
+<p>Sesli asistana söylediğiniz cümle önce AndroTalk'ın kendi kurallarıyla cihazınızda anlaşılmaya çalışılır; bunun için hiçbir yere bir şey gönderilmez. Kuralların anlayamadığı cümle, Ayarlar'da seçtiğiniz yapay zekâ sağlayıcısına gönderilir. Gönderilenler: söylediğiniz cümle ve aralarından seçim yapılacak adlar, yani AndroTalk komutlarının, telefonunuzdaki uygulamaların ve o an çalışabilecek otomasyonlarınızın adları. Cihaz üstü bir sağlayıcıda bunlar cihazdan çıkmaz; bulut sağlayıcıda yukarıdaki koşullarla Google'a ya da Anthropic'e gider.</p>
+<p><strong>Google araması:</strong> döviz kuru, hava durumu gibi güncel bilgi isteyen bir soruda sesli asistan soruyu telefonunuzdaki Google uygulamasında aratır; bu arama Google uygulamasıyla ve Google'ın koşullarıyla yapılır. Ardından sonuç sayfasının yalnız sonuçlar kısmı ekrandan okunur ve cevabı oluşturmak için seçtiğiniz yapay zekâ sağlayıcısına gönderilir. Sayfadaki Google hesabınızın adı ve e-posta adresi ile sayfanın altındaki konum bilgisi gönderilmez.</p>
 
 <h2>3. Model ve dil paketi indirme</h2>
 <ul>
@@ -106,6 +115,7 @@
 <h2>5. Ses tanıma (mikrofon)</h2>
 <p>Mikrofon yalnız sizin başlattığınız sesli işlemlerde kullanılır: "Ekrana sor", sesle öge bulma, sesle yazdırma, sesli asistan.</p>
 <p>Konuşmanız Android'in konuşma tanıma hizmetiyle metne çevrilir. Cihazınız destekliyorsa cihaz üstü tanıma kullanılır. Desteklemiyorsa cihazınızdaki konuşma tanıma hizmeti (çoğu cihazda Google) sesi kendi sunucusunda işleyebilir; bu durumda o hizmetin gizlilik politikası geçerlidir.</p>
+<p>Android 13 ve sonrasında, söylediğinizin doğru anlaşılması için konuşma tanıma hizmetine olası cevaplar ipucu olarak verilir: sesli asistanda telefonunuzdaki uygulamaların ve otomasyonlarınızın adları, sesle öge bulmada ekrandaki ögelerin adları. Cihaz üstü tanımada bunlar da cihazdan çıkmaz.</p>
 
 <h3>Rehber ve telefonla arama</h3>
 <p>Sesli asistandan bir kişiyi adıyla aramasını isterseniz (ör. "Ayşe'yi ara"), AndroTalk numarayı bulmak için rehberinizi okur. Rehber izni kurulumda değil, ilk böyle bir istekte sorulur. İzin vermezseniz numarayı söyleyerek arayabilirsiniz.</p>
@@ -149,7 +159,8 @@
 <h2>11. Üçüncü taraflar</h2>
 <p>AndroTalk kullanıcı verilerini satmaz ve geliştirici kimseyle paylaşmaz. Verilerin cihazdan doğrudan ulaşabileceği hizmetler yalnız şunlardır:</p>
 <ul>
-  <li><strong>Google:</strong> Gemini API (seçerseniz), ML Kit model indirme ve tanılama verileri, AICore, cihazınızın konuşma tanıma hizmeti.</li>
+  <li><strong>Google:</strong> Gemini API (seçerseniz), ML Kit model indirme ve tanılama verileri, AICore, cihazınızın konuşma tanıma hizmeti, sesli asistanın Google uygulamasıyla yaptığı arama.</li>
+  <li><strong>Anthropic:</strong> Claude API (seçerseniz).</li>
   <li><strong>Hugging Face:</strong> model indirme.</li>
   <li><strong>Metin okuma motorunuz:</strong> okunacak metin.</li>
 </ul>
@@ -157,7 +168,7 @@
 
 <h2>12. Verilerinizi silme</h2>
 <p>Uygulamanın cihazınızdaki bütün verileri (ayarlar, geçmişler, günlükler, indirilen modeller, anahtarlar) uygulamayı kaldırınca ya da Android ayarlarından uygulamanın verilerini temizleyince silinir. Kendi seçtiğiniz bir konuma dışa aktardığınız yedek dosyaları bunun dışındadır; onları siz silersiniz.</p>
-<p>Google'a gönderilen içerik için Google'ın politikası geçerlidir. Bize gönderdiğiniz günlüklerin silinmesini istemek için aşağıdaki adrese yazabilirsiniz.</p>
+<p>Google'a ya da Anthropic'e gönderilen içerik için o şirketin politikası geçerlidir. Bize gönderdiğiniz günlüklerin silinmesini istemek için aşağıdaki adrese yazabilirsiniz.</p>
 
 <h2>13. Çocukların gizliliği</h2>
 <p>AndroTalk çocuklara yönelik olarak tasarlanmamıştır ve bilerek 13 yaş altı çocuklardan veri toplamaz.</p>
