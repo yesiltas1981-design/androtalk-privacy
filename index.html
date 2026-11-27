@@ -18,7 +18,7 @@
 <body>
 
 <h1>AndroTalk Ekran Okuyucu — Gizlilik Politikası</h1>
-<p class="updated">Son güncelleme: 25 Kasım 2026 (önceki sürüm: 22 Kasım 2026)</p>
+<p class="updated">Son güncelleme: 27 Kasım 2026 (önceki sürüm: 25 Kasım 2026)</p>
 
 <p>Bu gizlilik politikası, AndroTalk Ekran Okuyucu ("AndroTalk", "uygulama") uygulamasının verileri nasıl işlediğini açıklar. AndroTalk, görme engelli ve az gören kullanıcılar için tasarlanmış bir Android erişilebilirlik (ekran okuyucu) uygulamasıdır.</p>
 
@@ -30,6 +30,7 @@
   <li>Veri cihazınızdan yalnız sizin seçtiğiniz ya da başlattığınız işlemlerde çıkar:
     <ul>
       <li>bulut yapay zekâ (Google Gemini ya da Anthropic Claude, kendi API anahtarınızla),</li>
+      <li>Be My Eyes ile betimleme (ekran görüntüsü, telefonunuzdaki Be My Eyes uygulaması aracılığıyla),</li>
       <li>sesli asistanın telefonunuzdaki Google uygulamasıyla yaptığı arama,</li>
       <li>model ve dil paketi indirme,</li>
       <li>cihazınızın konuşma tanıma hizmeti,</li>
@@ -93,6 +94,10 @@
 <h3>Sesli asistan</h3>
 <p>Sesli asistana söylediğiniz cümle önce AndroTalk'ın kendi kurallarıyla cihazınızda anlaşılmaya çalışılır; bunun için hiçbir yere bir şey gönderilmez. Kuralların anlayamadığı cümle, Ayarlar'da seçtiğiniz yapay zekâ sağlayıcısına gönderilir. Gönderilenler: söylediğiniz cümle ve aralarından seçim yapılacak adlar, yani AndroTalk komutlarının, telefonunuzdaki uygulamaların ve o an çalışabilecek otomasyonlarınızın adları. Cihaz üstü bir sağlayıcıda bunlar cihazdan çıkmaz; bulut sağlayıcıda yukarıdaki koşullarla Google'a ya da Anthropic'e gider.</p>
 <p><strong>Google araması:</strong> döviz kuru, hava durumu gibi güncel bilgi isteyen bir soruda sesli asistan soruyu telefonunuzdaki Google uygulamasında aratır; bu arama Google uygulamasıyla ve Google'ın koşullarıyla yapılır. Ardından sonuç sayfasının yalnız sonuçlar kısmı ekrandan okunur ve cevabı oluşturmak için seçtiğiniz yapay zekâ sağlayıcısına gönderilir. Sayfadaki Google hesabınızın adı ve e-posta adresi ile sayfanın altındaki konum bilgisi gönderilmez.</p>
+
+<h3>Be My Eyes ile betimleme</h3>
+<p>"Odaktakini Be My Eyes ile betimle" ve "Ekranı Be My Eyes ile betimle" komutları yapay zekâ sağlayıcısı ya da API anahtarı gerektirmez. Bu komutlardan birini başlattığınızda AndroTalk odaktaki öğenin ya da o anki ekranın görüntüsünü alır ve Android'in paylaşım yoluyla telefonunuzdaki Be My Eyes uygulamasına verir. İlk kullanımda bunu bir kez sorar. Görüntüyü AndroTalk internete göndermez; betimlemek için onu Be My Eyes kendi sunucularına gönderir. Bundan sonrası sizin Be My Eyes ile aranızdaki koşullara bağlıdır: <a href="https://www.bemyeyes.com/privacy-policy/">Be My Eyes Gizlilik Politikası</a>.</p>
+<p>Görüntü, Be My Eyes okuyabilsin diye uygulamanın geçici klasöründe on dakika kalır, sonra silinir. Ekran görüntüsünü güvenlik nedeniyle engelleyen uygulamalarda görüntü alınmaz. Bulut yapay zekâ için yukarıdaki önerimiz burada da geçerlidir: banka, sağlık, şifre ya da özel yazışma içeren ekranlarda kullanmayın.</p>
 
 <h2>3. Model ve dil paketi indirme</h2>
 <ul>
@@ -161,6 +166,7 @@
 <ul>
   <li><strong>Google:</strong> Gemini API (seçerseniz), ML Kit model indirme ve tanılama verileri, AICore, cihazınızın konuşma tanıma hizmeti, sesli asistanın Google uygulamasıyla yaptığı arama.</li>
   <li><strong>Anthropic:</strong> Claude API (seçerseniz).</li>
+  <li><strong>Be My Eyes:</strong> Be My Eyes ile betimleme komutlarında ekran görüntüsü, AndroTalk'tan değil telefonunuzdaki Be My Eyes uygulamasından (kullanırsanız).</li>
   <li><strong>Hugging Face:</strong> model indirme.</li>
   <li><strong>Metin okuma motorunuz:</strong> okunacak metin.</li>
 </ul>
